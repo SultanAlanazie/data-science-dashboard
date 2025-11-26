@@ -113,7 +113,7 @@ class LineChart(MatplotlibViz):
         # the border color and font color to black. 
         # Reference the base_components/matplotlib_viz file 
         # to inspect the supported keyword arguments
-        self.set_axis_styling(ax, border_color='black', font_color='black')
+        self.set_axis_styling(ax, bordercolor='black', fontcolor='black')
         
         # Set title and labels for x and y axis
         ax.set_title('Cumulative Event Count Over Time', fontsize=14)
@@ -173,7 +173,7 @@ class BarChart(MatplotlibViz):
         # pass the axis variable
         # to the `.set_axis_styling`
         # method
-        self.set_axis_styling(ax, border_color='black', font_color='black')
+        self.set_axis_styling(ax, bordercolor='black', fontcolor='black')
 
         return fig
 
@@ -264,14 +264,14 @@ def index():
 # an ID of `2`. 
 # parameterize the employee ID 
 # to a string datatype
-@app.get("/employee/{employee_id:str}")
-def employee(employee_id):
+@app.get("/employee/{employee_id:int}")
+def employee(employee_id: int):
 
     # Call the initialized report
     # pass the ID and an instance
     # of the Employee SQL class as arguments
     # Return the result
-    return report(int(employee_id), Employee())
+    return report(employee_id, Employee())
 
 # Create a route for a get request
 # Set the route's path to receive a request
@@ -280,14 +280,14 @@ def employee(employee_id):
 # an ID of `2`. 
 # parameterize the team ID 
 # to a string datatype
-@app.get("/team/{team_id:str}")
-def team(team_id):
+@app.get("/team/{team_id:int}")
+def team(team_id: int):
 
     # Call the initialized report
     # pass the id and an instance
     # of the Team SQL class as arguments
     # Return the result
-    return report(int(team_id), Team())
+    return report(team_id, Team())
 
 
 # Keep the below code unchanged!
